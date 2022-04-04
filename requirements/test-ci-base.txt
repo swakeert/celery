@@ -1,5 +1,5 @@
 pytest-cov
-pytest-github-actions-annotate-failures
+pytest-github-actions-annotate-failures==0.1.6
 codecov
 -r extras/redis.txt
 -r extras/sqlalchemy.txt
