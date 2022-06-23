@@ -1076,17 +1076,5 @@ class DisabledBackend(BaseBackend):
 
     _cache = {}  # need this attribute to reset cache in tests.
 
-    def store_result(self, *args, **kwargs):
-        pass
-
-    def ensure_chords_allowed(self):
+    def __getattribute__(self,name):
         raise NotImplementedError(E_CHORD_NO_BACKEND.strip())
-
-    def _is_disabled(self, *args, **kwargs):
-        raise NotImplementedError(E_NO_BACKEND.strip())
-
-    def as_uri(self, *args, **kwargs):
-        return 'disabled://'
-
-    get_state = get_status = get_result = get_traceback = _is_disabled
-    get_task_meta_for = wait_for = get_many = _is_disabled
